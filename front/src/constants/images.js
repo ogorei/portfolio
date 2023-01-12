@@ -5,7 +5,7 @@ import about4 from '../assests/about04.png';
 import adidas from '../assests/adidas.png';
 import amazon from '../assests/amazon.png';
 import name from '../assests/name.jpg';
-import profile from '../assests/profile.png';
+import profile from '../assests/profile_2.png';
 import circle from '../assests/circle.svg';
 import redux from '../assests/redux.png'
 import node from '../assests/node.png'
