@@ -4,20 +4,17 @@ import { motion } from 'framer-motion';
 import { images } from '../../constants';
 
 const abouts = [
-	{ title: 'Modern Web開発', description: 'im a good web dev', imgUrl: images.about1 },
-	{ title: 'Webデザイン', description: 'im a good web dev', imgUrl: images.about2 },
-	{ title: 'UI/UX', description: 'im a good web dev', imgUrl: images.about3 },
+	{ title: 'Webデザイン', description: '「一律料金」でオリジナルデザインのLPを制作いたします！', imgUrl: images.about2 },
+	{ title: 'UI/UX', description: 'ペルソナ設定、カスタマージャーニーマップなどを作成', imgUrl: images.about3 },
+	{ title: 'モバイル開発', description: 'iOS/Android', imgUrl: images.about1 },,
 ];
 
 const About = () => {
 	return (
 		<>
 			<h2 className="head-text">
-				<span>シンプルなデザインから、
-				</span>
-				<br />
-				意味のある。
-				<span>リード戦略へ。</span>
+				<span>SIMPLE</span> IS <span>THE BEST</span>
+				<p style={{textAlign:"center"}} className='p-text'>完璧とは、付け加えるべきものがなくなった時ではなく、取り去るべきものがなくなった時である。</p>
 			</h2>
 			<div className="app_profiles">
 				{abouts.map((item, index) => {

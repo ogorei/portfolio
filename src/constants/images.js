@@ -10,6 +10,7 @@ import circle from '../assests/circle.svg';
 import redux from '../assests/redux.png'
 import node from '../assests/node.png'
 import figma from '../assests/figma.png'
+import reina from '../assests/reina.png'
 
 export default {
 	about1,
@@ -23,5 +24,6 @@ export default {
 	circle,
 	redux,
 	node,
-	figma
+	figma,
+	reina
 };
