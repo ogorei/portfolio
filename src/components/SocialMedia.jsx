@@ -3,7 +3,7 @@ import {BsFacebook, BsGithub, BsTwitter} from 'react-icons/bs'
 
 const SocialMedia = () => {
   return (
-    <div className='app_social'>
+    <div className='app__social'>
       <div>
         <BsTwitter/>
       </div>

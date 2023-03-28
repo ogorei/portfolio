@@ -17,21 +17,21 @@ const scaleVariants = {
 
 const Header = () => {
 	return (
-		<div className="app_header app_flex">
+		<div className="app__header app__flex">
 			<motion.div
 				whileInView={{ x: [-100, 0], opacity: [0, 1] }}
 				transition={{ duration: 0.5 }}
-				className="app_header-info"
+				className="app__header-info"
 			>
-				<div className="app_header-badge">
-					<div className="badge-cmp app_flex">
+				<div className="app__header-badge">
+					<div className="badge-cmp app__flex">
 						<span>👋 </span>
 						<div style={{ marginLeft: 20 }}>
 							<p className="p-text">こんにちは、REINAです</p>
 						</div>
 					</div>
-					<div className="tag-cmp app_flex">
-						<p className="p-text">WEBデザイナー</p>
+					<div className="tag-cmp app__flex">
+						<p className="p-text">WEBデザイン</p>
 						<p className="p-text">モバイル開発</p>
 						<p className="p-text">UI/UX</p>
 					</div>
@@ -41,7 +41,7 @@ const Header = () => {
 			<motion.div
 				whileInView={{ opacity: [0, 1] }}
 				transition={{ duration: 0.5, delayChildren: [0.5] }}
-				className="app_header-img"
+				className="app__header-img"
 			>
 				<img src={images.profile} alt="profile"></img>
 				<motion.img
@@ -57,11 +57,11 @@ const Header = () => {
 				variants={scaleVariants}
 				whileInView={scaleVariants.whileInView}
 				transition={{ duration: 0.5 }}
-				className="app_header-circles"
+				className="app__header-circles"
 			>
-				{[images.redux, images.figma, images.amazon].map((item, index) => {
+				{[images.redux,images.react, images.expo, images.graphql].map((item, index) => {
 					return (
-						<div className="circle-cmp flex-_app" key={index}>
+						<div className="circle-cmp app__flex" key={index}>
 							<img src={item} />
 						</div>
 					);
@@ -72,3 +72,4 @@ const Header = () => {
 };
 
 export default AppWrap(Header, 'home');
+
