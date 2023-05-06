@@ -31,9 +31,10 @@ const Header = () => {
 						</div>
 					</div>
 					<div className="tag-cmp app__flex">
-						<p className="p-text">WEBデザイン</p>
+						<p className="p-text">フロントエンドが得意なITエンジニア</p>
 						<p className="p-text">モバイル開発</p>
-						<p className="p-text">UI/UX</p>
+						<p className="p-text">UI/UX改善・デザイン</p>
+						<p className="p-text">４ヶ国語流暢でインバウンド向けHP作成可能</p>
 					</div>
 				</div>
 			</motion.div>
