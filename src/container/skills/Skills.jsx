@@ -50,7 +50,7 @@ const Skills = () => {
           {experiences && experiences.map((experience) => (
             <motion.div
               className="app__skills-exp-item"
-              key={experience.year}
+              key={experience.id}
             >
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
@@ -63,7 +63,7 @@ const Skills = () => {
                       className="app__skills-exp-work"
                       data-tip
                       data-for={experience.name}
-                      key={experience.name}
+                      key={experience.id}
                     >
                       <h4 className="bold-text">{experience.name}</h4>
                       <p className="p-text">{experience.company}</p>
