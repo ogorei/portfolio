@@ -16,7 +16,6 @@ const Work = () => {
 		const query = '*[_type == "works"]';
 		client.fetch(query).then((data) => {
 			setWorks(data);
-			console.log(22,data);
 			setFilterWork(data);
 		});
 	}, []);

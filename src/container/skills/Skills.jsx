@@ -53,7 +53,7 @@ const Skills = () => {
               key={experience.id}
             >
               <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.year}</p>
+                <p className="bold-text">🔳</p>
               </div>
               <motion.div className="app__skills-exp-works">
                
