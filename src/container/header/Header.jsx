@@ -27,14 +27,16 @@ const Header = () => {
 					<div className="badge-cmp app__flex">
 						<span>👋 </span>
 						<div style={{ marginLeft: 20 }}>
-							<p className="p-text">こんにちは、REINAです</p>
+							<p className="p-text">Hi my name is Reina</p>
+							<p className="p-text">I'm a Software Engineer based in Tokyo</p>
 						</div>
 					</div>
 					<div className="tag-cmp app__flex">
-						<p className="p-text">フロントエンドが得意なITエンジニア</p>
-						<p className="p-text">モバイル開発</p>
-						<p className="p-text">UI/UX改善・デザイン</p>
-						<p className="p-text">４ヶ国語流暢でインバウンド向けHP作成可能</p>
+						<p className="p-text">Highly experienced in Frontend</p>
+						<p className="p-text">Mobile Development (Crossplatform)</p>
+						<p className="p-text">UI/UX (AdobeXD/FIGMA)</p>
+						<p className="p-text">Multilingual Scrum Master</p>
+						<p className="p-text">Product Owner/Manager</p>
 					</div>
 				</div>
 			</motion.div>
