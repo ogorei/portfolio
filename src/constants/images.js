@@ -5,12 +5,11 @@ import about4 from '../assests/about04.png';
 import adidas from '../assests/adidas.png';
 import amazon from '../assests/amazon.png';
 import name from '../assests/name.png';
-import profile from '../assests/profile_2.png';
+import profile from '../assests/profile.png';
 import circle from '../assests/circle.svg';
 import redux from '../assests/redux.png'
 import node from '../assests/node.png'
 import figma from '../assests/figma.png'
-import reina from '../assests/reina.png'
 import email from '../assests/email.png'
 import expo from '../assests/expo.png'
 import react from '../assests/react.png'
@@ -34,5 +33,4 @@ export default {
 	redux,
 	node,
 	figma,
-	reina
 };
