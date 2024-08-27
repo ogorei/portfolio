@@ -65,7 +65,7 @@ const Header = () => {
 				{[images.redux,images.react, images.expo, images.graphql].map((item, index) => {
 					return (
 						<div className="circle-cmp app__flex" key={index}>
-							<img src={item} />
+							<img alt="photosite" src={item} />
 						</div>
 					);
 				})}

@@ -16,6 +16,10 @@ const About = () => {
     });
   }, []);
 
+    const handleClick = (x) => {
+      window.open(x);
+    };
+
   return (
     <>
       <h2 className="head-text">I enjoy writing <span>Blogs</span></h2>
@@ -25,6 +29,7 @@ const About = () => {
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
+            onClick={()=>{handleClick(about.link)}}
             transition={{ duration: 0.5, type: 'tween' }}
             className="app__profile-item"
             key={about.title + index}
@@ -33,6 +38,7 @@ const About = () => {
             <h2 className="bold-text" style={{ marginTop: 20 }}>{about.title}</h2>
             <p className="p-text" style={{ marginTop: 10 }}>{about.description}</p>
           </motion.div>
+          
         ))}
       </div>
     </>

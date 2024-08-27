@@ -2,8 +2,6 @@ import about1 from '../assests/about01.png';
 import about2 from '../assests/about02.png';
 import about3 from '../assests/about03.png';
 import about4 from '../assests/about04.png';
-import adidas from '../assests/adidas.png';
-import amazon from '../assests/amazon.png';
 import name from '../assests/name.png';
 import profile from '../assests/profile.png';
 import circle from '../assests/circle.svg';
@@ -21,13 +19,11 @@ export default {
 	about2,
 	about3,
 	about4,
-	adidas,
-	amazon,
-    name,
-		email,
-		react,
-		graphql,
-		expo,
+  name,
+	email,
+	react,
+	graphql,
+	expo,
 	profile,
 	circle,
 	redux,
