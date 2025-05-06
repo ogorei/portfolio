@@ -4,6 +4,7 @@ import { Tooltip } from 'react-tooltip'
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
+import experiencesData from '../../data/experiences.json';
 import './Skills.scss';
 
 const Skills = () => {
@@ -11,13 +12,9 @@ const Skills = () => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    const query = '*[_type == "experiences"]';
+    setExperiences(experiencesData.experiences);
+    
     const skillsQuery = '*[_type == "skills"]';
-
-    client.fetch(query).then((data) => {
-     setExperiences(data);
-    });
-
     client.fetch(skillsQuery).then((data) => {
       setSkills(data);
     });
@@ -28,7 +25,12 @@ const Skills = () => {
       <h2 className="head-text">Skills & Experiences</h2>
 
       <div className="app__skills-container">
-        <motion.div className="app__skills-list">
+        <motion.div 
+          className="app__skills-list"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           {skills.map((skill) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
@@ -46,40 +48,48 @@ const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
-        <div className="app__skills-exp">
+
+        <motion.div 
+          className="app__skills-exp"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           {experiences && experiences.map((experience) => (
             <motion.div
               className="app__skills-exp-item"
               key={experience.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
               <div className="app__skills-exp-year">
-                <p className="bold-text">🔳</p>
+                <p className="bold-text">{experience.period}</p>
               </div>
               <motion.div className="app__skills-exp-works">
-               
-                    <motion.div
-                      whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
-                      className="app__skills-exp-work"
-                      data-tip
-                      data-for={experience.name}
-                      key={experience.id}
-                    >
-                      <h4 className="bold-text">{experience.name}</h4>
-                      <p className="p-text">{experience.company}</p>
-                    </motion.div>
-                    <Tooltip
-                      id={experience.name}
-                      effect="solid"
-                      arrowColor="#fff"
-                      className="skills-tooltip"
-                    >
-                      {experience.desc}
-                    </Tooltip>
+                <motion.div
+                  whileInView={{ opacity: [0, 1] }}
+                  transition={{ duration: 0.5 }}
+                  className="app__skills-exp-work"
+                  data-tip
+                  data-for={experience.name}
+                  key={experience.id}
+                >
+                  <h4 className="bold-text">{experience.name}</h4>
+                  <p className="p-text">{experience.company}</p>
+                </motion.div>
+                <Tooltip
+                  id={experience.name}
+                  effect="solid"
+                  arrowColor="#fff"
+                  className="skills-tooltip"
+                >
+                  {experience.desc}
+                </Tooltip>
               </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </>
   );
