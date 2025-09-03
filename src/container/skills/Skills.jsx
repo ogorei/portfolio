@@ -4,7 +4,6 @@ import { Tooltip } from 'react-tooltip'
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
-import experiencesData from '../../data/experiences.json';
 import './Skills.scss';
 
 const Skills = () => {
@@ -12,9 +11,13 @@ const Skills = () => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    setExperiences(experiencesData.experiences);
-    
+    const experiencesQuery = '*[_type == "experiences"] | order(year desc)';
     const skillsQuery = '*[_type == "skills"]';
+    
+    client.fetch(experiencesQuery).then((data) => {
+      setExperiences(data);
+    });
+    
     client.fetch(skillsQuery).then((data) => {
       setSkills(data);
     });
@@ -25,68 +28,54 @@ const Skills = () => {
       <h2 className="head-text">Skills & Experiences</h2>
 
       <div className="app__skills-container">
-        <motion.div 
-          className="app__skills-list"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          {skills.map((skill) => (
-            <motion.div
-              whileInView={{ opacity: [0, 1] }}
-              transition={{ duration: 0.5 }}
-              className="app__skills-item app__flex"
-              key={skill.name}
-            >
-              <div
-                className="app__flex"
-                style={{ backgroundColor: skill.bgColor }}
-              >
-                <img src={urlFor(skill.icon)} alt={skill.name} />
-              </div>
-              <p className="p-text">{skill.name}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+       
 
         <motion.div 
-          className="app__skills-exp"
+          className="app__experiences-container"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          {experiences && experiences.map((experience) => (
+          {experiences && experiences.map((experience, index) => (
             <motion.div
-              className="app__skills-exp-item"
-              key={experience.id}
+              className="app__experience-card"
+              key={experience._id || index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.period}</p>
+              <div className="app__experience-card-content">
+                <div className="app__experience-header">
+                  <div className="app__experience-icon">
+                    {experience.icon && (
+                      <img 
+                        src={urlFor(experience.icon)} 
+                        alt={experience.name}
+                        className="experience-icon-img"
+                      />
+                    )}
+                  </div>
+                  <div className="app__experience-title-section">
+                    <h3 className="app__experience-name">{experience.name}</h3>
+                    <p className="app__experience-company">{experience.company}</p>
+                    <p className="app__experience-year">{experience.year}</p>
+                  </div>
+                </div>
+                
+                <div className="app__experience-body">
+                  <p className="app__experience-description">{experience.desc}</p>
+                  
+                  {experience.tags && experience.tags.length > 0 && (
+                    <div className="app__experience-tags">
+                      {experience.tags.map((tag, tagIndex) => (
+                        <span key={tagIndex} className="app__experience-tag">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-              <motion.div className="app__skills-exp-works">
-                <motion.div
-                  whileInView={{ opacity: [0, 1] }}
-                  transition={{ duration: 0.5 }}
-                  className="app__skills-exp-work"
-                  data-tip
-                  data-for={experience.name}
-                  key={experience.id}
-                >
-                  <h4 className="bold-text">{experience.name}</h4>
-                  <p className="p-text">{experience.company}</p>
-                </motion.div>
-                <Tooltip
-                  id={experience.name}
-                  effect="solid"
-                  arrowColor="#fff"
-                  className="skills-tooltip"
-                >
-                  {experience.desc}
-                </Tooltip>
-              </motion.div>
             </motion.div>
           ))}
         </motion.div>
